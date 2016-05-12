@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/camera.css" />
     <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/contact-form.css"/>
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -32,7 +33,7 @@
     <![endif]-->
 </head>
 
-<body ng-app="canadaInsuranceApp">
+<body ng-app="canadaInsuranceApp"  ng-controller="AppCtrl as app">
     <div class="page">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -58,8 +59,8 @@
                         </ul> -->
                         <nav class="nav put-right">
                           <ul class="sf-menu nav navbar-nav">
-                              <li class="current"><a href="#/">Home</a></li>
-                              <li>
+                              <li ng-class="app.active('/')"><a href="#/">Home</a></li>
+                              <li ng-class="app.active('/about')">
                                   <a href="#/about">About</a>
                                   <ul>
                                       <li><a href="#">Lorem ipsum</a></li>
@@ -78,15 +79,39 @@
                               </li>
                               <li><a href="services.html">Services</a></li>
                               <li><a href="blog.html">Blog</a></li>
-                              <li><a href="#/">Contacts</a></li>
+                              <li ng-class="app.active('/contact')"><a href="#/contact">Contacts</a></li>
                           </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="content" class="container">
-            <div ng-view=""></div>
+        <div id="content" >
+            <div class="camera-wrapper" ng-hide="!app.isHome()">
+                <div id="camera" class="camera-wrap">
+                    <div data-src="images/index_slide01.jpg">
+                        <div class="fadeIn camera_caption">
+                            <h2 class="text_1 color_1">Solutions that you need!</h2>
+                            <a class="btn_1" href="#">More info</a>
+                        </div>
+                    </div>
+                    <div data-src="images/index_slide02.jpg">
+                        <div class="fadeIn camera_caption">
+                            <h2 class="text_1 color_1">Lorem ipsum dolor sit!</h2>
+                            <a class="btn_1" href="#">More info</a>
+                        </div>
+                    </div>
+                    <div data-src="images/index_slide03.jpg">
+                        <div class="fadeIn camera_caption">
+                            <h2 class="text_1 color_1">Lorem ipsum dolor sit amet, consectetur!</h2>
+                            <a class="btn_1" href="#">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body container">
+                <div ng-view=""></div>
+            </div>
         </div>
     </div>
     <footer id="footer" class="color_9">
@@ -133,11 +158,15 @@
     <!--<![endif]-->
     <script src="js/camera.js"></script>
     <script src="js/owl.carousel.js"></script>
+    <script src='js/modal.js'></script>
+    <script src='js/TMForm.js'></script>
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/app.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
     <!-- endbuild -->
+    <script src="js/script.js"></script>
 </body>
-
 </html>

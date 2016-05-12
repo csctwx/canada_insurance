@@ -127,7 +127,7 @@ $(document).ready(function () {
     if(camera.length > 0){
         camera.camera(
             {
-                autoAdvance: false,
+                autoAdvance: true,
                 height: '31.25%',
                 minHeight: '200px',
                 pagination: false,
@@ -138,7 +138,8 @@ $(document).ready(function () {
                 navigation: true,
                 navigationHover: false,
                 mobileNavHover: false,
-                fx: 'simpleFade'
+                fx: 'simpleFade',
+                time: 5000
             }
         );
     }
